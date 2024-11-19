@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Style/style.css">
+    <title>TechMind Games</title>
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>TechMind Games</h1>
+
+        <label for="nickname">Digite seu nick:</label>
+        <input type="text" id="nickname" placeholder="Seu nick aqui">
+
+        <div id="score-container">
+            <p>Pontuação Total: <span id="score">0</span></p>
+        </div>
+
+        <div id="game-selection" class="buttons">
+            <button class="btn-action" onclick="selectGame('word')">Jogo de Palavras</button>
+            <button class="btn-action" onclick="selectGame('number')">Adivinhação de Números</button>
+        </div>
+
+        <!-- Jogo de Palavras -->
+        <div id="word-game" class="game-area">
+            <div id="difficulty" class="buttons">
+                <button class="btn-difficulty" onclick="setDifficulty('easy')">Fácil</button>
+                <button class="btn-difficulty" onclick="setDifficulty('medium')">Médio</button>
+                <button class="btn-difficulty" onclick="setDifficulty('hard')">Difícil</button>
+            </div>
+            <div id="game-area">
+                <p id="word">Pressione Iniciar!</p>
+                <p id="hint">Dica: ?</p> <!-- Adicionando área para dica -->
+                <input type="text" id="guess-word" placeholder="Digite sua resposta">
+                <button class="btn-action" onclick="checkWord()">Verificar</button>
+            </div>
+            <div id="start-container">
+                <button class="btn-action" onclick="startGame()">Iniciar Jogo</button>
+            </div>
+        </div>
+
+        <!-- Jogo de Adivinhação de Números -->
+        <div id="number-game" class="game-area" style="display: none;">
+            <p>Tente adivinhar o número entre 1 e 100!</p>
+            <input type="number" id="guess-number" placeholder="Digite um número">
+            <button class="btn-action" onclick="checkNumber()">Verificar</button>
+            <p id="number-feedback"></p>
+        </div>
+
+        <!-- Ranking -->
+        <div id="ranking-container">
+            <h2>Ranking dos Melhores Jogadores</h2>
+            <ol id="ranking-list"></ol>
+            <button class="btn-action" onclick="resetRanking()">Zerar Ranking</button>
+        </div>
+    </div>
+
+    <script src="/Script/game.js"></script>
+</body>
+</html>
